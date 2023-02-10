@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vue-lib文档说明</title>
+</head>
+
+<body>
+  <div id="app">
+    <style>
+      html,
+      body,
+      #app {
+        height: 100vh;
+        width: 100vw;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .qy-home {
+        background-color: #7a7a7c;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .qy-home .qy-home-main {
+        user-select: none;
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+
+      .qy-home .qy-home-title {
+        color: #FFF;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .qy-home .qy-home-sub-title {
+        color: #ABABAB;
+        font-size: 16px;
+      }
+
+      .qy-home .qy-home-refresh {
+        padding: 5px;
+        color: #ABABAB;
+        font-size: 14px;
+      }
+
+      .qy-home .qy-home-refresh button {
+        margin: 5px;
+      }
+    </style>
+    <div class="qy-home">
+      <div class="qy-home-main">
+        <div class="qy-home-title">正在加载资源</div>
+        <div class="qy-home-sub-title">首次加载资源可能需要较多时间 请耐心等待</div>
+        <script>
+          setTimeout(function () {
+            var dom = document.querySelector("#app .qy-home-main")
+            if (dom) {
+              var addDom = document.createElement("div");
+              addDom.className = "qy-home-refresh";
+              addDom.innerHTML = '<span>等待时间过长，可以尝试刷新一下</span><button onclick="javascript:location.reload();">刷新</button>';
+              dom.appendChild(addDom);
+            }
+          }, 4000)
+        </script>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
