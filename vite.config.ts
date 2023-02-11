@@ -44,10 +44,11 @@ export default defineConfig({
         vue(),
         dts({
             cleanVueFileName: true,
-            beforeWriteFile: (filePath) => {
-                const top = resolve(__dirname, './dist/es');
-                return beforeWriteFile(filePath, top);
-            },
+            // skipDiagnostics: true,
+            // beforeWriteFile: (filePath) => {
+            //     const top = resolve(__dirname, './dist/es');
+            //     return beforeWriteFile(filePath, top);
+            // },
             outputDir: resolve(__dirname, './dist/es'),
             //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
             tsConfigFilePath: './tsconfig.json',
@@ -55,13 +56,14 @@ export default defineConfig({
         //因为这个插件默认打包到es下，我们想让lib目录下也生成声明文件需要再配置一个
         dts({
             cleanVueFileName: true,
-            beforeWriteFile: (filePath) => {
-                const top = resolve(
-                    __dirname,
-                    './dist/lib',
-                );
-                return beforeWriteFile(filePath, top);
-            },
+            // skipDiagnostics: true,
+            // beforeWriteFile: (filePath) => {
+            //     const top = resolve(
+            //         __dirname,
+            //         './dist/lib',
+            //     );
+            //     return beforeWriteFile(filePath, top);
+            // },
             outputDir: resolve(__dirname, './dist/lib'),
             tsConfigFilePath: './tsconfig.json',
         }),
@@ -90,7 +92,8 @@ export default defineConfig({
                 {
                     format: 'es',
                     //不用打包成.es.js,这里我们想把它打包成.js
-                    entryFileNames: entryFileNames,
+                    // entryFileNames: entryFileNames,
+                    entryFileNames: '[name].js',
                     //让打包目录和我们目录对应
                     preserveModules: true,
                     //配置打包根目录
@@ -99,7 +102,8 @@ export default defineConfig({
                 },
                 {
                     format: 'cjs',
-                    entryFileNames: entryFileNames,
+                    // entryFileNames: entryFileNames,
+                    entryFileNames: '[name].js',
                     //让打包目录和我们目录对应
                     preserveModules: true,
                     //配置打包根目录
