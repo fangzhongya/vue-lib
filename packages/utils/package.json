@@ -1,13 +1,13 @@
 {
-    "name": "@fangzhongya/vue-lib",
+    "name": "@fangzhongya/vue-lib-utils",
     "private": false,
-    "version": "0.0.2-6",
+    "version": "1.0.1",
     "type": "module",
-    "description ": "vue 组件库",
+    "description ": "vue组件库工具",
     "author": "fangzhongya ",
     "license": "MIT",
     "keywords": [
-        "vue 组件库"
+        "vue组件库工具"
     ],
     "repository": {
         "type": "git",
@@ -18,37 +18,46 @@
         "registry": "https://registry.npmjs.org/"
     },
     "scripts": {
+        "dev": "ts-node node/index.ts",
+        "dev:tests": "ts-node node/tests.ts",
         "dev:packa": "ts-node node/package.ts",
-        "dev": "pnpm -C archive dev",
-        "build": "pnpm -r --filter=./packages/** run build && tsup",
-        "publish": "pnpm -r publish --access public --no-git-checks",
-        "build:archive": "pnpm run -C archive build"
-    },
-    "dependencies": {
-        "@fangzhongya/vue-lib-components": "workspace:^1.0.0",
-        "@fangzhongya/vue-lib-utils": "workspace:^1.0.0",
-        "vue": "^3.2.47"
+        "build": "tsup",
+        "test": "vitest",
+        "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-11",
+        "@fangzhongya/create": "0.2.2-10",
         "@types/node": "^18.13.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
-        "typescript": "^4.9.5"
+        "typescript": "^4.9.5",
+        "vite": "^4.1.1",
+        "vitest": "^0.28.5",
+        "vue": "^3.2.47"
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/*"
+            ]
+        }
     },
     "exports": {
-        "./*": "./*",
+        "./install": {
+            "require": "./dist/install.cjs",
+            "import": "./dist/install.js",
+            "types": "./dist/install.d.ts"
+        },
         ".": {
             "require": "./dist/index.cjs",
             "import": "./dist/index.js",
             "types": "./dist/index.d.ts"
         }
     },
-    "main": "./dist/index.cjs",
     "module": "./dist/index.js",
+    "main": "./dist/index.cjs",
     "types": "./dist/index.d.ts",
     "files": [
-        "*.d.ts",
         "dist"
     ]
 }

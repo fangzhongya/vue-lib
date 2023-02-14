@@ -18,10 +18,10 @@ export default defineConfig({
             resolver: componentsJsonObj[config.dir],
             comprops: '/common/props/',
             components: import.meta.glob(
-                '../packages/**/src/index.(ts|vue)',
+                '../packages/components/**/src/index.(ts|vue)',
             ),
             componentsRaw: import.meta.glob(
-                '../packages/**/*.(ts|vue)',
+                '../packages/components/**/*.(ts|vue)',
                 {
                     as: 'raw',
                 },

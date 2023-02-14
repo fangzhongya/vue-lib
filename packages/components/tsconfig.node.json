@@ -7,7 +7,6 @@
   },
   "include": [
     "vite.config.ts",
-    "archive.config.ts",
-    "config.ts",
+    "node/**/*.ts",
   ]
 }

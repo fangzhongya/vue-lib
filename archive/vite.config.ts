@@ -21,4 +21,8 @@ export default defineConfig({
             vue: 'vue/dist/vue.esm-bundler.js',
         },
     },
+    server: {
+        host: '0.0.0.0', // 可以外部访问
+        hmr: true, // 开启热更新
+    },
 });

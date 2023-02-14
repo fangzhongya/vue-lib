@@ -1,14 +1,61 @@
 {
-    "name": "@fangzhongya/vue-lib/components",
-    "version": "0.0.1",
-    "description": "",
-    "main": "index.ts",
-    "module": "index.ts",
-    "unpkg": "index.js",
-    "jsdelivr": "index.js",
-    "peerDependencies": {
-        "vue": "^3.2.45"
+    "name": "@fangzhongya/vue-lib-components",
+    "version": "1.0.1",
+    "type": "module",
+    "description ": "vue组件库工具",
+    "author": "fangzhongya ",
+    "license": "MIT",
+    "keywords": [
+        "vue组件库工具"
+    ],
+    "repository": {
+        "type": "git",
+        "url": " https://github.com/fangzhongya/vue-lib.git"
     },
-    "types": "index.d.ts",
-    "sideEffects": false
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "scripts": {
+        "dev:vue": "ts-node node/vue.ts",
+        "dev:tests": "ts-node node/tests.ts",
+        "build": "vue-tsc && vite build",
+        "test": "vitest",
+        "test:run": "vitest run"
+    },
+    "devDependencies": {
+        "@fangzhongya/create": "0.2.2-1",
+        "@types/node": "^18.13.0",
+        "@vitejs/plugin-vue": "^4.0.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.5",
+        "vite": "^4.1.0",
+        "vite-plugin-dts": "^1.7.2",
+        "vue-tsc": "^1.0.24"
+    },
+    "dependencies": {
+        "@fangzhongya/vue-lib-utils": "workspace:^1.0.0",
+        "vue": "^3.2.47"
+    },
+    "files": [
+        "*.d.ts",
+        "dist"
+    ],
+    "main": "dist/lib/index.js",
+    "module": "dist/es/index.js",
+    "types": "dist/es/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "dist/es/index.d.ts",
+            "import": "dist/es/index.js",
+            "require": "dist/lib/index.js"
+        },
+        "./es": "./dist/es/index.js",
+        "./lib": "/dist/lib/index.js",
+        "./es/*.js": "./es/*.js",
+        "./es/*": "./es/*.js",
+        "./lib/*.js": "./lib/*.js",
+        "./lib/*": "./lib/*.js",
+        "./*": "./*"
+    }
 }
