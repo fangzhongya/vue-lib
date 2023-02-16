@@ -6,5 +6,5 @@
  */
 import { withInstall } from '@fangzhongya/vue-lib-utils/install'
 import SrcVue from './src/index.vue'
-export const Title = withInstall(SrcVue, 'Title');
-export default Title;
+export const Duowj = withInstall(SrcVue, 'Duowj');
+export default Duowj;

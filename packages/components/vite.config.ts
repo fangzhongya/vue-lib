@@ -8,12 +8,7 @@ const outDir = './dist';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [
-        vue(),
-        dts(getDts('es', outDir)),
-        //因为这个插件默认打包到es下，我们想让lib目录下也生成声明文件需要再配置一个
-        dts(getDts('lib', outDir)),
-    ],
+    plugins: [vue(), dts(getDts(outDir))],
     base: './',
     build: {
         target: 'modules',
@@ -22,7 +17,8 @@ export default defineConfig({
         //压缩
         minify: false,
         //css分离
-        //cssCodeSplit: true,
+        // vite 代码有问题，没有给出完整的路径，所以无法解析
+        cssCodeSplit: true,
         rollupOptions: {
             //忽略打包vue文件
             external: [

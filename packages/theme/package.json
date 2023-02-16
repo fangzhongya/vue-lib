@@ -1,0 +1,45 @@
+{
+    "name": "@fangzhongya/vue-lib-theme",
+    "private": false,
+    "version": "1.0.1",
+    "type": "module",
+    "description ": "vue组件库样式",
+    "author": "fangzhongya ",
+    "license": "MIT",
+    "keywords": [
+        "vue组件库工具"
+    ],
+    "repository": {
+        "type": "git",
+        "url": " https://github.com/fangzhongya/vue-lib.git"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "scripts": {
+        "dev:index": "ts-node node/index.ts",
+        "dev:css": "ts-node node/css.ts",
+        "dev": "pnpm dev:css & pnpm dev:index",
+        "build": "gulp"
+    },
+    "devDependencies": {
+        "@fangzhongya/create": "0.2.2-20",
+        "@types/gulp": "^4.0.10",
+        "@types/gulp-autoprefixer": "^0.0.33",
+        "@types/gulp-clean-css": "^4.3.0",
+        "@types/gulp-sass": "^5.0.0",
+        "@types/node": "^18.13.0",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-sass": "^5.1.0",
+        "sass": "^1.58.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.5"
+    },
+    "exports": {},
+    "files": [
+        "dist"
+    ]
+}

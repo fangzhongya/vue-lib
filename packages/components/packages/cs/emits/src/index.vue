@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="emits">
         <div @click="onClick">change</div>
     </div>
 </template>
@@ -14,4 +14,9 @@ function onClick() {
     emit('change', []);
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+@import url('./index.scss');
+.emits {
+    display: block;
+}
+</style>

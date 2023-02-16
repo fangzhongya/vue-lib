@@ -21,12 +21,12 @@
         "dev:packa": "ts-node node/package.ts",
         "dev": "pnpm -C archive dev",
         "build": "pnpm -r --filter=./packages/** run build && tsup",
-        "publish": "pnpm -r publish --access public --no-git-checks",
+        "pub": "pnpm -r publish --access public --no-git-checks",
         "build:archive": "pnpm run -C archive build"
     },
     "dependencies": {
-        "@fangzhongya/vue-lib-components": "workspace:^1.0.0",
-        "@fangzhongya/vue-lib-utils": "workspace:^1.0.0",
+        "@fangzhongya/vue-lib-components": "workspace:^1.0.1",
+        "@fangzhongya/vue-lib-utils": "workspace:^1.0.1",
         "vue": "^3.2.47"
     },
     "devDependencies": {

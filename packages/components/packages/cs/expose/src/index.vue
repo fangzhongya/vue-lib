@@ -1,5 +1,5 @@
 <template>
-    <div>{{ value }}</div>
+    <div class="expose">{{ value }}</div>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
@@ -26,4 +26,8 @@ defineExpose({
     getValue,
 });
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.expose {
+    display: inline-block;
+}
+</style>

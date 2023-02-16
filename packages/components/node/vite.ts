@@ -35,8 +35,9 @@ const createObj: ObjStr = create;
 
 const nameArr = Object.keys(create);
 
-function entryFileNames(obj: PreRenderedChunk) {
+function entryFileNames(obj: PreRenderedChunk, type) {
     let name = obj.name;
+    let hz = type == 'es' ? 'js' : 'cjs';
     if (name != 'index') {
         name = name.replace(/\.vue$/, '');
         for (
@@ -50,12 +51,30 @@ function entryFileNames(obj: PreRenderedChunk) {
                     element,
                     createObj[element],
                 );
-                return sc + '.js';
+                return sc + '.' + hz;
             }
         }
     }
-    return name + '.js';
+    return name + '.' + hz;
 }
+
+function assetFileNames(obj) {
+    let name = obj.name;
+    const reg =
+        /^.*\/([^\/]*)\/src\/([^\/]*).vue(\?.*)?.[css|scss]$/;
+    const re = reg.exec(name);
+    if (re && re.length > 0) {
+        if (re[2] == 'index') {
+            name = re[1] + '/index.css';
+        } else {
+            name = re[1] + '/' + re[2] + '.css';
+        }
+        return name;
+    } else {
+        return 'index.css';
+    }
+}
+
 const reg = new RegExp('^' + config.splicetop);
 function beforeWriteFile(
     name: string,
@@ -105,8 +124,8 @@ function beforeWriteFile(
     }
 }
 
-export function getDts(type: string, dist = './dist') {
-    const top = resolve(process.cwd(), dist + '/' + type);
+export function getDts(dist: string) {
+    const top = resolve(process.cwd(), dist);
     return {
         cleanVueFileName: true,
         // skipDiagnostics: true,
@@ -114,10 +133,7 @@ export function getDts(type: string, dist = './dist') {
             filePath: string,
             content: string,
         ) => {
-            const top = resolve(
-                process.cwd(),
-                dist + '/' + type,
-            );
+            const top = resolve(process.cwd(), dist);
             return beforeWriteFile(filePath, top, content);
         },
         outputDir: top,
@@ -125,27 +141,21 @@ export function getDts(type: string, dist = './dist') {
         tsConfigFilePath: './tsconfig.json',
     };
 }
-const output: ObjStr = {
-    cjs: 'lib',
-    es: 'es',
-};
 export function getOutput(
     type: ModuleFormat,
-    dist = './dist',
+    outDir: string,
 ) {
-    const top = resolve(
-        process.cwd(),
-        dist + '/' + output[type],
-    );
     return {
         format: type,
         //不用打包成.es.js,这里我们想把它打包成.js
-        entryFileNames: entryFileNames,
+        entryFileNames: (obj) => {
+            return entryFileNames(obj, type);
+        },
+        assetFileNames: assetFileNames,
         // entryFileNames: '[name].js',
         //让打包目录和我们目录对应
         preserveModules: true,
         //配置打包根目录
-        dir: top,
-        preserveModulesRoot: dist,
+        dir: outDir,
     };
 }
