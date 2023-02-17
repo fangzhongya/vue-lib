@@ -1,10 +1,28 @@
-import { create } from './build.lib';
-import { resolve, join } from 'path';
+import { resolve, join } from 'node:path';
 import { config } from './vue';
+
+// import { filter } from './catalogue-filter';
+// import { config as comCnfig } from '../../../config';
+import { readFileSync } from 'node:fs';
+const configJson = readFileSync(
+    resolve(process.cwd(), '../../config.json'),
+);
+const comCnfig = JSON.parse(configJson.toString());
+
+const filterJson = readFileSync(
+    resolve(process.cwd(), '../../catalogue-filter.json'),
+);
+const filter = JSON.parse(filterJson.toString());
 
 // const config = {
 //     splicetop: '',
 // };
+
+export interface PreRenderedAsset {
+    name: string | undefined;
+    source: string | Uint8Array;
+    type: 'asset';
+}
 
 export type InternalModuleFormat =
     | 'amd'
@@ -32,11 +50,15 @@ export interface PreRenderedChunk {
     type: 'chunk';
 }
 type ObjStr = { [key: string]: string };
-const createObj: ObjStr = create;
 
-const nameArr = Object.keys(create);
+const filterObj: ObjStr = comCnfig.commerge ? filter : {};
 
-function entryFileNames(obj: PreRenderedChunk, type) {
+const nameArr = Object.keys(filter);
+
+function entryFileNames(
+    obj: PreRenderedChunk,
+    type: string,
+) {
     let name = obj.name;
     let hz = type == 'es' ? 'js' : 'cjs';
     if (name != 'index') {
@@ -50,7 +72,7 @@ function entryFileNames(obj: PreRenderedChunk, type) {
             if (name.startsWith(element)) {
                 const sc = name.replace(
                     element,
-                    createObj[element],
+                    filterObj[element],
                 );
                 return sc + '.' + hz;
             }
@@ -59,8 +81,8 @@ function entryFileNames(obj: PreRenderedChunk, type) {
     return name + '.' + hz;
 }
 
-function assetFileNames(obj) {
-    let name = obj.name;
+function assetFileNames(obj: PreRenderedAsset) {
+    let name = obj.name || '';
     const reg =
         /^.*\/([^\/]*)\/src\/([^\/]*).vue(\?.*)?.[css|scss]$/;
     const re = reg.exec(name);
@@ -97,7 +119,7 @@ function beforeWriteFile(
                 '',
             );
             const key = (
-                createObj[nameArr[index]] + '/'
+                filterObj[nameArr[index]] + '/'
             ).replace(reg, '');
             content = content.replace(element, key);
         }
@@ -116,7 +138,7 @@ function beforeWriteFile(
             if (name.startsWith(element)) {
                 const sc = name.replace(
                     element,
-                    createObj[element],
+                    filterObj[element],
                 );
                 const filePath = join(top, sc);
                 return { filePath: filePath };
@@ -149,7 +171,7 @@ export function getOutput(
     return {
         format: type,
         //不用打包成.es.js,这里我们想把它打包成.js
-        entryFileNames: (obj) => {
+        entryFileNames: (obj: PreRenderedChunk) => {
             return entryFileNames(obj, type);
         },
         assetFileNames: assetFileNames,

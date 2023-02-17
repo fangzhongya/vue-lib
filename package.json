@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib",
     "private": false,
-    "version": "0.0.2-6",
+    "version": "0.0.2-7",
     "type": "module",
     "description ": "vue 组件库",
     "author": "fangzhongya ",
@@ -20,18 +20,25 @@
     "scripts": {
         "dev:packa": "ts-node node/package.ts",
         "dev": "pnpm -C archive dev",
+        "dev:v": "ts-node node/version.ts",
         "build": "tsup",
-        "build:all": "pnpm -r --filter=./packages/** run build:all",
+        "all:v": "pnpm -r --filter=./packages/** run dev:v",
+        "build:all": "pnpm -r --filter=./packages/** run build:all & pnpm build & pnpm -C packages/theme all",
+        "build:archive": "pnpm run -C archive build",
         "pub": "pnpm -r publish --access public --no-git-checks",
-        "build:archive": "pnpm run -C archive build"
+        "all": "pnpm all:v & pnpm pub"
     },
     "dependencies": {
-        "@fangzhongya/vue-lib-components": "workspace:^1.0.1",
-        "@fangzhongya/vue-lib-utils": "workspace:^1.0.1",
+        "@fangzhongya/vue-lib-components": "workspace:^1.0.4",
+        "@fangzhongya/vue-lib-directives": "workspace:^1.0.7",
+        "@fangzhongya/vue-lib-hooks": "workspace:^1.0.5",
+        "@fangzhongya/vue-lib-locale": "workspace:^1.0.5",
+        "@fangzhongya/vue-lib-theme": "workspace:^1.0.1",
+        "@fangzhongya/vue-lib-utils": "workspace:^1.0.5",
         "vue": "^3.2.47"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-11",
+        "@fangzhongya/create": "0.2.2-35",
         "@types/node": "^18.13.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",

@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "lib": [
       "ESNext",
+      "DOM"
     ],
     "skipLibCheck": true,
     "noEmit": true
@@ -20,9 +21,14 @@
     "packages/**/*.d.ts",
     "packages/**/*.tsx",
     "packages/**/*.vue",
-    "node/**/*.ts"
+    "node/**/*.ts",
+    "config.ts"
   ],
-  "references": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
   "ts-node": {
     "esm": true
   }

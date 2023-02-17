@@ -2,11 +2,13 @@
  * @config cover=false
  * cover 是否覆盖当前文件，默认是false， true 表示不覆盖
  * 当前已经由@fangzhongya/create自动生成
- * Thu Feb 16 2023 22:33:05 GMT+0800 (中国标准时间)
+ * Fri Feb 17 2023 19:53:07 GMT+0800 (中国标准时间)
  */
-@use "./cs/duowj/index.scss" as *;
-@use "./cs/emits/index.scss" as *;
-@use "./cs/expose/index.scss" as *;
-@use "./cs/props/index.scss" as *;
-@use "./cs/slot/index.scss" as *;
-@use "./cs/title/index.scss" as *;
+@use 'sass:map';
+@use "../common/config.scss" as *;
+@use "./duowj/index.scss" as *;
+@use "./emits/index.scss" as *;
+@use "./props/index.scss" as *;
+@use "./slot/index.scss" as *;
+@use "./expose/index.scss" as *;
+@use "./title/index.scss" as *;

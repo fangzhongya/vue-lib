@@ -1,4 +1,4 @@
-import { runDev } from '@fangzhongya/create/export/utils';
+import { runDev } from '@fangzhongya/create/export';
 runDev({
     dir: './packages/',
     coverConfig: true,

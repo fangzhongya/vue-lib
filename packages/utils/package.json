@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-utils",
     "private": false,
-    "version": "1.0.1",
+    "version": "1.0.8",
     "type": "module",
     "description ": "vue组件库工具",
     "author": "fangzhongya ",
@@ -18,21 +18,22 @@
         "registry": "https://registry.npmjs.org/"
     },
     "scripts": {
-        "dev": "ts-node node/index.ts",
+        "dev:index": "ts-node node/index.ts",
         "dev:tests": "ts-node node/tests.ts",
         "dev:packa": "ts-node node/package.ts",
-        "build": "pnpm dev & tsup",
+        "dev:v": "ts-node node/version.ts",
+        "build": "tsup",
         "build:all": "pnpm build & pnpm dev:packa",
         "test": "vitest",
         "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-20",
+        "@fangzhongya/create": "0.2.2-35",
         "@types/node": "^18.13.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
         "typescript": "^4.9.5",
-        "vite": "^4.1.1",
+        "vite": "^4.1.2",
         "vitest": "^0.28.5",
         "vue": "^3.2.47"
     },
@@ -50,10 +51,10 @@
             "import": "./dist/index.js",
             "types": "./dist/index.d.ts"
         },
-        "./install": {
-            "require": "./dist/install.cjs",
-            "import": "./dist/install.js",
-            "types": "./dist/install.d.ts"
+        "./withInstall": {
+            "require": "./dist/withInstall.cjs",
+            "import": "./dist/withInstall.js",
+            "types": "./dist/withInstall.d.ts"
         },
         ".": {
             "require": "./dist/index.cjs",

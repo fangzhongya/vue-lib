@@ -6,6 +6,10 @@ export const config = {
     fileCover: true,
     writeNotes: true,
     extensions: ['css', 'scss'],
+    fileTop() {
+        return [`@use 'sass:map';`];
+    },
+    topUrl: ['../common/config.scss'],
 };
 
 runDev(config);

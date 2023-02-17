@@ -1,5 +1,11 @@
 import { runDev } from '@fangzhongya/create/export/vuelib';
 import { resolve } from 'node:path';
+// import { config as comCnfig } from '../../../config';
+import { readFileSync } from 'node:fs';
+const configJson = readFileSync(
+    resolve(process.cwd(), '../../config.json'),
+);
+const comCnfig = JSON.parse(configJson.toString());
 
 export const config = {
     dir: './packages/',
@@ -8,14 +14,17 @@ export const config = {
      */
     dittop: resolve(process.cwd(), './packages/'),
 
-    liburl: resolve(process.cwd(), './node/build.lib.ts'),
+    liburl: resolve(
+        process.cwd(),
+        '../../catalogue-filter.json',
+    ),
     /**
      * 拼接头
      */
     splicetop: '',
 
     utilurl() {
-        return '@fangzhongya/vue-lib-utils/install';
+        return '@fangzhongya/vue-lib-utils/withInstall';
     },
 
     coverConfig: true,
@@ -24,7 +33,7 @@ export const config = {
 
     extensions: ['vue', 'ts'],
 
-    alias: '',
+    alias: comCnfig.alias || '',
 
     onlyAlias: false,
 

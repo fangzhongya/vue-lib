@@ -1,0 +1,61 @@
+{
+    "name": "@fangzhongya/vue-lib-hooks",
+    "private": false,
+    "version": "1.0.8",
+    "type": "module",
+    "description ": "vue组件库use",
+    "author": "fangzhongya ",
+    "license": "MIT",
+    "keywords": [
+        "vue组件库use"
+    ],
+    "repository": {
+        "type": "git",
+        "url": " https://github.com/fangzhongya/vue-lib.git"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "scripts": {
+        "dev:index": "ts-node node/index.ts",
+        "dev:tests": "ts-node node/tests.ts",
+        "dev:packa": "ts-node node/package.ts",
+        "dev:v": "ts-node node/version.ts",
+        "build": "tsup",
+        "build:all": "pnpm build & pnpm dev:packa",
+        "test": "vitest",
+        "test:run": "vitest run"
+    },
+    "devDependencies": {
+        "@fangzhongya/create": "0.2.2-35",
+        "@types/node": "^18.13.0",
+        "ts-node": "^10.9.1",
+        "tsup": "^6.6.3",
+        "typescript": "^4.9.5",
+        "vite": "^4.1.2",
+        "vitest": "^0.28.5",
+        "vue": "^3.2.47"
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/*"
+            ]
+        }
+    },
+    "exports": {
+        "./*": "./*",
+        ".": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "module": "./dist/index.js",
+    "main": "./dist/index.cjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ]
+}
