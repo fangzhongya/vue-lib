@@ -21,7 +21,8 @@
         "dev:index": "ts-node node/index.ts",
         "dev:css": "ts-node node/css.ts",
         "dev": "pnpm dev:css & pnpm dev:index",
-        "build": "gulp"
+        "build": "gulp",
+        "build:all": "pnpm build"
     },
     "devDependencies": {
         "@fangzhongya/create": "0.2.2-20",

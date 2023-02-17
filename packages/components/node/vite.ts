@@ -1,9 +1,10 @@
 import { create } from './build.lib';
 import { resolve, join } from 'path';
+import { config } from './vue';
 
-const config = {
-    splicetop: '',
-};
+// const config = {
+//     splicetop: '',
+// };
 
 export type InternalModuleFormat =
     | 'amd'

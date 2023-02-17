@@ -19,20 +19,22 @@
     "scripts": {
         "dev:vue": "ts-node node/vue.ts",
         "dev:tests": "ts-node node/tests.ts",
+        "dev:packa": "ts-node node/package.ts",
         "build": "vue-tsc && vite build",
+        "build:all": "pnpm build & pnpm dev:packa",
         "test": "vitest",
         "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-1",
+        "@fangzhongya/create": "0.2.2-21",
         "@types/node": "^18.13.0",
         "@vitejs/plugin-vue": "^4.0.0",
-        "sass": "^1.58.1",
+        "sass": "^1.58.2",
         "ts-node": "^10.9.1",
         "typescript": "^4.9.5",
-        "vite": "^4.1.0",
-        "vite-plugin-dts": "^1.7.2",
-        "vue-tsc": "^1.0.24"
+        "vite": "^4.1.1",
+        "vite-plugin-dts": "2.0.0-beta.0",
+        "vue-tsc": "^1.1.2"
     },
     "dependencies": {
         "@fangzhongya/vue-lib-utils": "workspace:^1.0.0",
@@ -42,21 +44,57 @@
         "*.d.ts",
         "dist"
     ],
-    "main": "dist/lib/index.js",
-    "module": "dist/es/index.js",
-    "types": "dist/es/index.d.ts",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "exports": {
-        ".": {
-            "types": "dist/es/index.d.ts",
-            "import": "dist/es/index.js",
-            "require": "dist/lib/index.js"
+        "./*": "./*",
+        "./duowj/index": {
+            "require": "./dist/duowj/index.cjs",
+            "import": "./dist/duowj/index.js",
+            "types": "./dist/duowj/index.d.ts"
         },
-        "./es": "./dist/es/index.js",
-        "./lib": "/dist/lib/index.js",
-        "./es/*.js": "./es/*.js",
-        "./es/*": "./es/*.js",
-        "./lib/*.js": "./lib/*.js",
-        "./lib/*": "./lib/*.js",
-        "./*": "./*"
+        "./emits/index": {
+            "require": "./dist/emits/index.cjs",
+            "import": "./dist/emits/index.js",
+            "types": "./dist/emits/index.d.ts"
+        },
+        "./expose/index": {
+            "require": "./dist/expose/index.cjs",
+            "import": "./dist/expose/index.js",
+            "types": "./dist/expose/index.d.ts"
+        },
+        "./props/index": {
+            "require": "./dist/props/index.cjs",
+            "import": "./dist/props/index.js",
+            "types": "./dist/props/index.d.ts"
+        },
+        "./slot/index": {
+            "require": "./dist/slot/index.cjs",
+            "import": "./dist/slot/index.js",
+            "types": "./dist/slot/index.d.ts"
+        },
+        "./title/index": {
+            "require": "./dist/title/index.cjs",
+            "import": "./dist/title/index.js",
+            "types": "./dist/title/index.d.ts"
+        },
+        "./index": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        ".": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/*"
+            ]
+        }
     }
 }

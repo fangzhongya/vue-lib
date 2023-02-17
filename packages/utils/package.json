@@ -21,12 +21,13 @@
         "dev": "ts-node node/index.ts",
         "dev:tests": "ts-node node/tests.ts",
         "dev:packa": "ts-node node/package.ts",
-        "build": "tsup",
+        "build": "pnpm dev & tsup",
+        "build:all": "pnpm build & pnpm dev:packa",
         "test": "vitest",
         "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-10",
+        "@fangzhongya/create": "0.2.2-20",
         "@types/node": "^18.13.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
@@ -43,6 +44,12 @@
         }
     },
     "exports": {
+        "./*": "./*",
+        "./index": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
         "./install": {
             "require": "./dist/install.cjs",
             "import": "./dist/install.js",
