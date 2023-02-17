@@ -17,16 +17,21 @@
         "access": "public",
         "registry": "https://registry.npmjs.org/"
     },
+    "packageManager": "pnpm",
+    "engines": {
+        "node": ">=14.0.0"
+    },
     "scripts": {
         "dev:packa": "ts-node node/package.ts",
         "dev": "pnpm -C archive dev",
         "dev:v": "ts-node node/version.ts",
         "build": "tsup",
         "all:v": "pnpm -r --filter=./packages/** run dev:v",
+        "all:c": "pnpm -r --filter=./packages/** run dev:c",
         "build:all": "pnpm -r --filter=./packages/** run build:all & pnpm build & pnpm -C packages/theme all",
         "build:archive": "pnpm run -C archive build",
         "pub": "pnpm -r publish --access public --no-git-checks",
-        "all": "pnpm all:v & pnpm pub"
+        "all": "pnpm build:all & pnpm all:v & pnpm pub"
     },
     "dependencies": {
         "@fangzhongya/vue-lib-components": "workspace:^1.0.4",
@@ -38,7 +43,7 @@
         "vue": "^3.2.47"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-35",
+        "@fangzhongya/create": "0.2.2-36",
         "@types/node": "^18.13.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",

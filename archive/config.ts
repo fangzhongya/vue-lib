@@ -1,9 +1,11 @@
+import configJson from '../config.json';
+
 export const config = {
     dir: '../packages/',
 
     extensions: ['vue', 'ts'],
 
-    alias: '',
+    alias: configJson.alias,
 
     onlyAlias: false,
 

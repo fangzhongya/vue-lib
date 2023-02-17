@@ -22,7 +22,7 @@ export default defineConfig({
         },
     },
     server: {
-        host: '0.0.0.0', // 可以外部访问
-        hmr: true, // 开启热更新
+        host: '0.0.0.0',
+        hmr: true,
     },
 });

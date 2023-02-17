@@ -18,7 +18,7 @@ runDev({
     outDir: './src',
     alias: comCnfig.alias,
     filter: comCnfig.commerge ? filter : undefined,
-    coverConfig: false,
-    fileCover: false,
+    coverConfig: true,
+    fileCover: true,
     writeNotes: true,
 });

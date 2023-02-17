@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-utils",
     "private": false,
-    "version": "1.0.8",
+    "version": "1.0.10",
     "type": "module",
     "description ": "vue组件库工具",
     "author": "fangzhongya ",
@@ -28,7 +28,7 @@
         "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-35",
+        "@fangzhongya/create": "0.2.2-36",
         "@types/node": "^18.13.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",

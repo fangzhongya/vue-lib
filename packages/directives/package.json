@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-directives",
     "private": false,
-    "version": "1.0.10",
+    "version": "1.0.12",
     "type": "module",
     "description ": "vue组件库指令",
     "author": "fangzhongya ",
@@ -22,13 +22,14 @@
         "dev:tests": "ts-node node/tests.ts",
         "dev:packa": "ts-node node/package.ts",
         "dev:v": "ts-node node/version.ts",
+        "dev:c": "pnpm dev:index",
         "build": "tsup",
         "build:all": "pnpm build & pnpm dev:packa",
         "test": "vitest",
         "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-35",
+        "@fangzhongya/create": "0.2.2-36",
         "@types/node": "^18.13.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",

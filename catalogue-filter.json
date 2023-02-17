@@ -1,8 +1,8 @@
 {
-    "cs/duowj": "duowj",
     "cs/emits": "emits",
-    "cs/expose": "expose",
+    "cs/duowj": "duowj",
     "cs/props": "props",
     "cs/slot": "slot",
-    "cs/title": "title"
+    "cs/title": "title",
+    "cs/expose": "expose"
 }
