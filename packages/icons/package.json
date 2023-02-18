@@ -1,0 +1,66 @@
+{
+    "name": "@fangzhongya/vue-lib-icons",
+    "private": false,
+    "version": "1.0.10",
+    "type": "module",
+    "description ": "vue组件库图标",
+    "author": "fangzhongya ",
+    "license": "MIT",
+    "keywords": [
+        "vue组件库图标"
+    ],
+    "repository": {
+        "type": "git",
+        "url": " https://github.com/fangzhongya/vue-lib.git"
+    },
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
+    "scripts": {
+        "dev:index": "ts-node node/index.ts",
+        "dev:packa": "ts-node node/package.ts",
+        "dev:v": "ts-node node/version.ts",
+        "dev": "pnpm dev:index",
+        "build": "tsup",
+        "build:all": "pnpm dev:index & pnpm build & pnpm dev:packa"
+    },
+    "devDependencies": {
+        "@fangzhongya/create": "0.2.2-36",
+        "@types/node": "^18.13.0",
+        "ts-node": "^10.9.1",
+        "tsup": "^6.6.3",
+        "typescript": "^4.9.5"
+    },
+    "exports": {
+        "./*": "./*",
+        "./index": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./zh-cn": {
+            "require": "./dist/zh-cn.cjs",
+            "import": "./dist/zh-cn.js",
+            "types": "./dist/zh-cn.d.ts"
+        },
+        ".": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/*"
+            ]
+        }
+    }
+}

@@ -29,6 +29,7 @@
     },
     "devDependencies": {
         "@fangzhongya/create": "0.2.2-36",
+        "@fangzhongya/utils": "0.0.7-11",
         "@types/node": "^18.13.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
@@ -46,15 +47,55 @@
     },
     "exports": {
         "./*": "./*",
+        "./vue/props/index": {
+            "require": "./dist/vue/props/index.cjs",
+            "import": "./dist/vue/props/index.js",
+            "types": "./dist/vue/props/index.d.ts"
+        },
+        "./vue/props/runtime": {
+            "require": "./dist/vue/props/runtime.cjs",
+            "import": "./dist/vue/props/runtime.js",
+            "types": "./dist/vue/props/runtime.d.ts"
+        },
+        "./vue/props/util": {
+            "require": "./dist/vue/props/util.cjs",
+            "import": "./dist/vue/props/util.js",
+            "types": "./dist/vue/props/util.d.ts"
+        },
+        "./vue/props/types": {
+            "require": "./dist/vue/props/types.cjs",
+            "import": "./dist/vue/props/types.js",
+            "types": "./dist/vue/props/types.d.ts"
+        },
+        "./vue/definePropType": {
+            "require": "./dist/vue/definePropType.cjs",
+            "import": "./dist/vue/definePropType.js",
+            "types": "./dist/vue/definePropType.d.ts"
+        },
+        "./vue/index": {
+            "require": "./dist/vue/index.cjs",
+            "import": "./dist/vue/index.js",
+            "types": "./dist/vue/index.d.ts"
+        },
+        "./vue/withInstall": {
+            "require": "./dist/vue/withInstall.cjs",
+            "import": "./dist/vue/withInstall.js",
+            "types": "./dist/vue/withInstall.d.ts"
+        },
         "./index": {
             "require": "./dist/index.cjs",
             "import": "./dist/index.js",
             "types": "./dist/index.d.ts"
         },
-        "./withInstall": {
-            "require": "./dist/withInstall.cjs",
-            "import": "./dist/withInstall.js",
-            "types": "./dist/withInstall.d.ts"
+        "./enums": {
+            "require": "./dist/enums.cjs",
+            "import": "./dist/enums.js",
+            "types": "./dist/enums.d.ts"
+        },
+        "./getOnlyKey": {
+            "require": "./dist/getOnlyKey.cjs",
+            "import": "./dist/getOnlyKey.js",
+            "types": "./dist/getOnlyKey.d.ts"
         },
         ".": {
             "require": "./dist/index.cjs",

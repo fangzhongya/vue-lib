@@ -8,7 +8,7 @@
  * D:/fangzhongya/monorepo/packages/utils/packages/install.ts
  */
 import { test, expect } from 'vitest';
-import { withInstall } from '../packages/withInstall';
+import { withInstall } from '../packages/vue/withInstall';
 
 test('../packages/install', () => {
     const v = withInstall({}, 'cs');

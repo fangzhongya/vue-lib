@@ -1,8 +1,6 @@
 {
-    "cs/emits": "emits",
-    "cs/duowj": "duowj",
-    "cs/props": "props",
-    "cs/slot": "slot",
-    "cs/title": "title",
-    "cs/expose": "expose"
+    "config-provider": "config-provider",
+    "forms/form": "form",
+    "forms/subset/input": "input",
+    "forms/subset/select": "select"
 }

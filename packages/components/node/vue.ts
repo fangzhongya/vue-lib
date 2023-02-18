@@ -7,12 +7,14 @@ const configJson = readFileSync(
 );
 const comCnfig = JSON.parse(configJson.toString());
 
+const dittop = resolve(process.cwd(), './packages/');
+
 export const config = {
     dir: './packages/',
     /**
      * 替换头的完整路径
      */
-    dittop: resolve(process.cwd(), './packages/'),
+    dittop: dittop,
 
     liburl: resolve(
         process.cwd(),
@@ -24,7 +26,14 @@ export const config = {
     splicetop: '',
 
     utilurl() {
-        return '@fangzhongya/vue-lib-utils/withInstall';
+        return '@fangzhongya/vue-lib-utils/vue/withInstall';
+    },
+
+    fileTop(url: string) {
+        // if (url != dittop) {
+        // return [`export * from './src/data';`];
+        // }
+        return [];
     },
 
     coverConfig: true,

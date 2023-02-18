@@ -1,10 +1,2 @@
-import type { Options } from 'tsup';
-
-export const tsup: Options = {
-    entry: ['./lang/**/*.ts'],
-    format: ['cjs', 'esm'],
-    dts: true,
-    splitting: true,
-    clean: true,
-    shims: false,
-};
+import { getTsup } from '../../tsup.config';
+export const tsup = getTsup();

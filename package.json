@@ -34,17 +34,18 @@
         "all": "pnpm build:all & pnpm all:v & pnpm pub"
     },
     "dependencies": {
-        "@fangzhongya/vue-lib-components": "workspace:^1.0.4",
-        "@fangzhongya/vue-lib-directives": "workspace:^1.0.7",
-        "@fangzhongya/vue-lib-hooks": "workspace:^1.0.5",
-        "@fangzhongya/vue-lib-locale": "workspace:^1.0.5",
-        "@fangzhongya/vue-lib-theme": "workspace:^1.0.1",
-        "@fangzhongya/vue-lib-utils": "workspace:^1.0.5",
+        "@fangzhongya/vue-lib-components": "workspace:^1.0.9",
+        "@fangzhongya/vue-lib-directives": "workspace:^1.0.12",
+        "@fangzhongya/vue-lib-hooks": "workspace:^1.0.16",
+        "@fangzhongya/vue-lib-locale": "workspace:^1.0.10",
+        "@fangzhongya/vue-lib-theme": "workspace:^1.0.6",
+        "@fangzhongya/vue-lib-types": "workspace:^1.0.10",
+        "@fangzhongya/vue-lib-utils": "workspace:^1.0.10",
         "vue": "^3.2.47"
     },
     "devDependencies": {
         "@fangzhongya/create": "0.2.2-36",
-        "@types/node": "^18.13.0",
+        "@types/node": "^18.14.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
         "typescript": "^4.9.5"

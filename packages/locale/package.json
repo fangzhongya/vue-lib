@@ -23,7 +23,7 @@
         "dev:v": "ts-node node/version.ts",
         "dev": "pnpm dev:index",
         "build": "tsup",
-        "build:all": "pnpm build & pnpm dev:packa"
+        "build:all": "pnpm dev:index & pnpm build & pnpm dev:packa"
     },
     "devDependencies": {
         "@fangzhongya/create": "0.2.2-36",
