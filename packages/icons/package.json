@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-icons",
     "private": false,
-    "version": "1.0.10",
+    "version": "1.0.11",
     "type": "module",
     "description ": "vue组件库图标",
     "author": "fangzhongya ",
@@ -34,16 +34,6 @@
     },
     "exports": {
         "./*": "./*",
-        "./index": {
-            "require": "./dist/index.cjs",
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        },
-        "./zh-cn": {
-            "require": "./dist/zh-cn.cjs",
-            "import": "./dist/zh-cn.js",
-            "types": "./dist/zh-cn.d.ts"
-        },
         ".": {
             "require": "./dist/index.cjs",
             "import": "./dist/index.js",

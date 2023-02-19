@@ -24,9 +24,9 @@ export const dataProps = buildProps({
      */
     zIndex: Number,
     /**
-     * @description global component className prefix (cooperated with [$namespace](https://github.com/element-plus/element-plus/blob/dev/packages/theme-chalk/src/mixins/config.scss#L1)) | ^[string]
+     * @description
      */
-    namespace: {
+    cssname: {
         type: String,
     },
 });

@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-hooks",
     "private": false,
-    "version": "1.0.16",
+    "version": "1.0.22",
     "type": "module",
     "description ": "vue组件库use",
     "author": "fangzhongya ",
@@ -45,6 +45,11 @@
     },
     "exports": {
         "./*": "./*",
+        "./cssname/index": {
+            "require": "./dist/cssname/index.cjs",
+            "import": "./dist/cssname/index.js",
+            "types": "./dist/cssname/index.d.ts"
+        },
         "./default-config/index": {
             "require": "./dist/default-config/index.cjs",
             "import": "./dist/default-config/index.js",
@@ -54,6 +59,11 @@
             "require": "./dist/global-config/index.cjs",
             "import": "./dist/global-config/index.js",
             "types": "./dist/global-config/index.d.ts"
+        },
+        "./locale/index": {
+            "require": "./dist/locale/index.cjs",
+            "import": "./dist/locale/index.js",
+            "types": "./dist/locale/index.d.ts"
         },
         "./index": {
             "require": "./dist/index.cjs",

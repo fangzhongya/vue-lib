@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-utils",
     "private": false,
-    "version": "1.0.10",
+    "version": "1.0.11",
     "type": "module",
     "description ": "vue组件库工具",
     "author": "fangzhongya ",
@@ -52,15 +52,15 @@
             "import": "./dist/vue/props/index.js",
             "types": "./dist/vue/props/index.d.ts"
         },
-        "./vue/props/runtime": {
-            "require": "./dist/vue/props/runtime.cjs",
-            "import": "./dist/vue/props/runtime.js",
-            "types": "./dist/vue/props/runtime.d.ts"
-        },
         "./vue/props/util": {
             "require": "./dist/vue/props/util.cjs",
             "import": "./dist/vue/props/util.js",
             "types": "./dist/vue/props/util.d.ts"
+        },
+        "./vue/props/runtime": {
+            "require": "./dist/vue/props/runtime.cjs",
+            "import": "./dist/vue/props/runtime.js",
+            "types": "./dist/vue/props/runtime.d.ts"
         },
         "./vue/props/types": {
             "require": "./dist/vue/props/types.cjs",
@@ -82,11 +82,6 @@
             "import": "./dist/vue/withInstall.js",
             "types": "./dist/vue/withInstall.d.ts"
         },
-        "./index": {
-            "require": "./dist/index.cjs",
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        },
         "./enums": {
             "require": "./dist/enums.cjs",
             "import": "./dist/enums.js",
@@ -96,6 +91,11 @@
             "require": "./dist/getOnlyKey.cjs",
             "import": "./dist/getOnlyKey.js",
             "types": "./dist/getOnlyKey.d.ts"
+        },
+        "./index": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
         },
         ".": {
             "require": "./dist/index.cjs",

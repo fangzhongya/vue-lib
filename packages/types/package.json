@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-types",
     "private": false,
-    "version": "1.0.10",
+    "version": "1.0.11",
     "type": "module",
     "description ": "vue组件库type类型",
     "author": "fangzhongya ",

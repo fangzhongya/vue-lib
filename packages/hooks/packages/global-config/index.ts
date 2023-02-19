@@ -7,15 +7,24 @@ import {
     computed,
 } from 'vue';
 import type { App, Ref } from 'vue';
-// import type { MaybeRef } from '@fangzhongya/vue-lib-types/hooks';
+import type { MaybeRef } from '@fangzhongya/vue-lib-types/hooks';
 import { getOnlyKey } from '@fangzhongya/vue-lib-utils/getOnlyKey';
 import { SymbolKey } from '@fangzhongya/vue-lib-utils/enums';
-// import type { DataProps } from '@fangzhongya/vue-lib-components/config-provider/src/data';
+
 import type { ConfigProviderData } from '@fangzhongya/vue-lib-components/config-provider/index';
 type DataProps = ConfigProviderData.DataProps;
 
+const globalConfig = ref<DataProps>();
+
 const { GlobalConfig } = SymbolKey;
 
+export function useGlobalConfig<
+    K extends keyof DataProps,
+    D extends DataProps[K],
+>(
+    key: K,
+    defaultValue?: D,
+): Ref<Exclude<DataProps[K], undefined> | D>;
 export function useGlobalConfig(): Ref<DataProps>;
 export function useGlobalConfig(
     key?: keyof DataProps,
@@ -33,13 +42,6 @@ export function useGlobalConfig(
     }
 }
 
-type Readonly<T> = {
-    readonly [P in keyof T]: T[P];
-};
-
-type MaybeRef<T> = T | Ref<T> | Readonly<T>;
-
-const globalConfig = ref<DataProps>();
 export const provideGlobalConfig = (
     config: MaybeRef<DataProps>,
     app?: App,
@@ -53,7 +55,7 @@ export const provideGlobalConfig = (
     const provideFn =
         app?.provide ?? (inSetup ? provide : undefined);
     if (!provideFn) {
-        console.log('');
+        console.log('err');
         return;
     }
 

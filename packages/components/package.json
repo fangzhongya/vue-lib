@@ -1,6 +1,6 @@
 {
     "name": "@fangzhongya/vue-lib-components",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "type": "module",
     "description ": "vue组件库工具",
     "author": "fangzhongya ",
@@ -40,6 +40,7 @@
         "vue-tsc": "^1.1.3"
     },
     "dependencies": {
+        "@fangzhongya/utils": "0.0.7-11",
         "vue": "^3.2.47"
     },
     "files": [
@@ -51,30 +52,40 @@
     "types": "./dist/index.d.ts",
     "exports": {
         "./*": "./*",
-        "./components/packages/config-provider/index": {
-            "require": "./dist/components/packages/config-provider/index.cjs",
-            "import": "./dist/components/packages/config-provider/index.js",
-            "types": "./dist/components/packages/config-provider/index.d.ts"
+        "./packages/components/packages/config-provider/index": {
+            "require": "./dist/packages/components/packages/config-provider/index.cjs",
+            "import": "./dist/packages/components/packages/config-provider/index.js",
+            "types": "./dist/packages/components/packages/config-provider/index.d.ts"
         },
-        "./components/packages/forms/form/index": {
-            "require": "./dist/components/packages/forms/form/index.cjs",
-            "import": "./dist/components/packages/forms/form/index.js",
-            "types": "./dist/components/packages/forms/form/index.d.ts"
+        "./packages/components/packages/forms/form/index": {
+            "require": "./dist/packages/components/packages/forms/form/index.cjs",
+            "import": "./dist/packages/components/packages/forms/form/index.js",
+            "types": "./dist/packages/components/packages/forms/form/index.d.ts"
         },
-        "./components/packages/forms/subset/input/index": {
-            "require": "./dist/components/packages/forms/subset/input/index.cjs",
-            "import": "./dist/components/packages/forms/subset/input/index.js",
-            "types": "./dist/components/packages/forms/subset/input/index.d.ts"
+        "./packages/components/packages/forms/subset/input/index": {
+            "require": "./dist/packages/components/packages/forms/subset/input/index.cjs",
+            "import": "./dist/packages/components/packages/forms/subset/input/index.js",
+            "types": "./dist/packages/components/packages/forms/subset/input/index.d.ts"
         },
-        "./components/packages/forms/subset/select/index": {
-            "require": "./dist/components/packages/forms/subset/select/index.cjs",
-            "import": "./dist/components/packages/forms/subset/select/index.js",
-            "types": "./dist/components/packages/forms/subset/select/index.d.ts"
+        "./packages/components/packages/forms/subset/select/index": {
+            "require": "./dist/packages/components/packages/forms/subset/select/index.cjs",
+            "import": "./dist/packages/components/packages/forms/subset/select/index.js",
+            "types": "./dist/packages/components/packages/forms/subset/select/index.d.ts"
         },
-        "./components/packages/index": {
-            "require": "./dist/components/packages/index.cjs",
-            "import": "./dist/components/packages/index.js",
-            "types": "./dist/components/packages/index.d.ts"
+        "./packages/components/packages/i18n/index": {
+            "require": "./dist/packages/components/packages/i18n/index.cjs",
+            "import": "./dist/packages/components/packages/i18n/index.js",
+            "types": "./dist/packages/components/packages/i18n/index.d.ts"
+        },
+        "./packages/components/packages/index": {
+            "require": "./dist/packages/components/packages/index.cjs",
+            "import": "./dist/packages/components/packages/index.js",
+            "types": "./dist/packages/components/packages/index.d.ts"
+        },
+        "./packages/locale/dist/index": {
+            "require": "./dist/packages/locale/dist/index.cjs",
+            "import": "./dist/packages/locale/dist/index.js",
+            "types": "./dist/packages/locale/dist/index.d.ts"
         },
         ".": {
             "require": "./dist/index.cjs",

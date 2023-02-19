@@ -1,8 +1,12 @@
 <template>
-    <div class="input"></div>
+    <div :class="cs.z()">{{ getLocale('hello') }}</div>
 </template>
 <script lang="ts" setup>
 import { dataProps } from './data';
+import { useLocale } from '@fangzhongya/vue-lib-hooks/locale/index';
+import { useCssName } from '@fangzhongya/vue-lib-hooks/cssname/index';
+const cs = useCssName('input');
+const { getLocale } = useLocale();
 const props = defineProps(dataProps);
 </script>
 <style lang="scss"></style>

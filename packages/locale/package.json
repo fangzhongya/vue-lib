@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-locale",
     "private": false,
-    "version": "1.0.10",
+    "version": "1.0.11",
     "type": "module",
     "description ": "vue组件库国际化",
     "author": "fangzhongya ",
@@ -35,10 +35,20 @@
     },
     "exports": {
         "./*": "./*",
+        "./common": {
+            "require": "./dist/common.cjs",
+            "import": "./dist/common.js",
+            "types": "./dist/common.d.ts"
+        },
         "./index": {
             "require": "./dist/index.cjs",
             "import": "./dist/index.js",
             "types": "./dist/index.d.ts"
+        },
+        "./en": {
+            "require": "./dist/en.cjs",
+            "import": "./dist/en.js",
+            "types": "./dist/en.d.ts"
         },
         "./zh-cn": {
             "require": "./dist/zh-cn.cjs",

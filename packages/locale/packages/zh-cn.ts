@@ -1,4 +1,7 @@
 export default {
     name: 'zh-cn',
-    value: {},
+    value: {
+        hello: '你好',
+        cs: '测试',
+    },
 };

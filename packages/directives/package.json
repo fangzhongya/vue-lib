@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-directives",
     "private": false,
-    "version": "1.0.12",
+    "version": "1.0.13",
     "type": "module",
     "description ": "vue组件库指令",
     "author": "fangzhongya ",

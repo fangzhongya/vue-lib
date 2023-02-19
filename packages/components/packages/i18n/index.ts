@@ -6,6 +6,6 @@
  */
 import { withInstall } from '@fangzhongya/vue-lib-utils/vue/withInstall'
 import SrcVue from './src/index.vue'
-export const Select = withInstall(SrcVue, 'Select');
-export default Select;
-export * as SelectData from './src/data';
+export const I18n = withInstall(SrcVue, 'I18n');
+export default I18n;
+export * as I18nData from './src/data';
