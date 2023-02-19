@@ -6,5 +6,5 @@
  */
 import { withInstall } from '@fangzhongya/vue-lib-utils'
 import SrcVue from './src/index.vue'
-export const I18n = withInstall(SrcVue, 'I18n');
-export default I18n;
+export const Props = withInstall(SrcVue, 'Props');
+export default Props;

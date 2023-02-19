@@ -9,6 +9,11 @@ export const config = {
 
     onlyAlias: false,
 
+    catalogue: [
+        'components/packages/',
+        'directives/packages/',
+    ],
+
     aliass: {},
 
     matchs: [],

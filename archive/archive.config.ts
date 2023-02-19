@@ -16,12 +16,13 @@ export default defineConfig({
         {
             dir: config.dir,
             resolver: componentsJsonObj[config.dir],
-            comprops: '/common/props/',
+            comprops: '/common/data/',
+            curprops: 'data',
             components: import.meta.glob(
-                '../packages/components/**/src/index.(ts|vue)',
+                '../packages/components/packages/**/src/index.(ts|vue)',
             ),
             componentsRaw: import.meta.glob(
-                '../packages/components/**/*.(ts|vue)',
+                '../packages/components/packages/**/*.(ts|vue)',
                 {
                     as: 'raw',
                 },

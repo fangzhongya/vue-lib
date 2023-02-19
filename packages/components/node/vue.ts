@@ -29,13 +29,6 @@ export const config = {
         return '@fangzhongya/vue-lib-utils';
     },
 
-    fileTop(url: string) {
-        // if (url != dittop) {
-        // return [`export * from './src/data';`];
-        // }
-        return [];
-    },
-
     coverConfig: true,
     fileCover: true,
     writeNotes: true,
