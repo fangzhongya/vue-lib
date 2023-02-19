@@ -1,8 +1,9 @@
 import type { App } from 'vue';
-import * as components from '@fangzhongya/vue-lib-components/index';
-import * as directives from '@fangzhongya/vue-lib-directives/index';
-export * from '@fangzhongya/vue-lib-components/index';
-export * from '@fangzhongya/vue-lib-directives/index';
+import * as components from '@fangzhongya/vue-lib-components';
+import * as directives from '@fangzhongya/vue-lib-directives';
+export * from '@fangzhongya/vue-lib-components';
+export * from '@fangzhongya/vue-lib-directives';
+
 type ObjAny = {
     [key: string]: any;
 };

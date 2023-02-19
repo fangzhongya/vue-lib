@@ -26,7 +26,7 @@ export const config = {
     splicetop: '',
 
     utilurl() {
-        return '@fangzhongya/vue-lib-utils/vue/withInstall';
+        return '@fangzhongya/vue-lib-utils';
     },
 
     fileTop(url: string) {

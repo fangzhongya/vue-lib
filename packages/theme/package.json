@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-theme",
     "private": false,
-    "version": "1.0.7",
+    "version": "1.0.10",
     "type": "module",
     "description ": "vue组件库样式",
     "author": "fangzhongya ",

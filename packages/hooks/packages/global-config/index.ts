@@ -7,12 +7,11 @@ import {
     computed,
 } from 'vue';
 import type { App, Ref } from 'vue';
-import type { MaybeRef } from '@fangzhongya/vue-lib-types/hooks';
-import { getOnlyKey } from '@fangzhongya/vue-lib-utils/getOnlyKey';
-import { SymbolKey } from '@fangzhongya/vue-lib-utils/enums';
+import type { MaybeRef } from '@fangzhongya/vue-lib-types';
+import { getOnlyKey } from '@fangzhongya/vue-lib-utils';
+import { SymbolKey } from '@fangzhongya/vue-lib-utils';
 
-import type { ConfigProviderData } from '@fangzhongya/vue-lib-components/config-provider/index';
-type DataProps = ConfigProviderData.DataProps;
+import type { DataProps } from '@fangzhongya/vue-lib-components/packages/config-provider/src/data';
 
 const globalConfig = ref<DataProps>();
 
@@ -33,6 +32,7 @@ export function useGlobalConfig(
     const config = getCurrentInstance()
         ? inject(getOnlyKey(GlobalConfig), globalConfig)
         : globalConfig;
+
     if (key) {
         return computed(
             () => config.value?.[key] ?? defaultValue,
@@ -54,17 +54,15 @@ export const provideGlobalConfig = (
 
     const provideFn =
         app?.provide ?? (inSetup ? provide : undefined);
-    if (!provideFn) {
-        console.log('err');
-        return;
-    }
 
     const context = computed(() => {
         const cfg = unref(config);
         if (!oldConfig?.value) return cfg;
         return mergeConfig<DataProps>(oldConfig.value, cfg);
     });
-    provideFn(getOnlyKey(GlobalConfig), context);
+    if (provideFn) {
+        provideFn(getOnlyKey(GlobalConfig), context);
+    }
     if (global || !globalConfig.value) {
         globalConfig.value = context.value;
     }

@@ -18,7 +18,11 @@ function getClassName(
     // 后缀样式 --
     modifier: string,
 ): string {
-    let cls = `${cssname}-${block}`;
+    let cls = '';
+    if (cssname) {
+        cls = `${cssname}-`;
+    }
+    cls += block;
     if (blockSuffix) {
         cls += `-${blockSuffix}`;
     }

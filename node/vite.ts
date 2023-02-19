@@ -1,22 +1,21 @@
 import { resolve, join } from 'node:path';
-import { config } from './vue';
 
 // import { filter } from './catalogue-filter';
-// import { config as comCnfig } from '../../../config';
+// import { config as comCnfig } from './config';
 import { readFileSync } from 'node:fs';
 const configJson = readFileSync(
-    resolve(process.cwd(), '../../config.json'),
+    resolve(process.cwd(), './config.json'),
 );
 const comCnfig = JSON.parse(configJson.toString());
 
 const filterJson = readFileSync(
-    resolve(process.cwd(), '../../catalogue-filter.json'),
+    resolve(process.cwd(), './catalogue-filter.json'),
 );
 const filter = JSON.parse(filterJson.toString());
 
-// const config = {
-//     splicetop: '',
-// };
+const config = {
+    splicetop: '',
+};
 
 export interface PreRenderedAsset {
     name: string | undefined;
@@ -61,15 +60,20 @@ function entryFileNames(
 ) {
     let name = obj.name;
     let hz = type == 'es' ? 'js' : 'cjs';
-    if (name != 'index') {
+    if (name == 'packages/components/index') {
+        name = 'index';
+    } else if (name != 'index') {
         name = name.replace(/\.vue$/, '');
+        name = name
+            .replace(/^packages[\\|\/]/, '')
+            .replace(/[\\|\/]packages[\\|\/]/, '/');
         for (
             let index = 0;
             index < nameArr.length;
             index++
         ) {
             const element = nameArr[index];
-            if (name.startsWith(element)) {
+            if (name.startsWith('components/' + element)) {
                 const sc = name.replace(
                     element,
                     filterObj[element],
@@ -106,7 +110,8 @@ function beforeWriteFile(
 ) {
     const indexUrl = join(
         top,
-        config.splicetop + '/index.d.ts',
+        config.splicetop +
+            '/components/packages/index.d.ts',
     );
     if (name == indexUrl) {
         for (
@@ -123,19 +128,29 @@ function beforeWriteFile(
             ).replace(reg, '');
             content = content.replace(element, key);
         }
-        return { filePath: name, content };
+        return {
+            filePath: join(
+                top,
+                config.splicetop + '/components/index.d.ts',
+            ),
+            content,
+        };
     } else {
         name = name
             .replace(top, '')
             .substring(1)
-            .replace(/[\\|\/]/g, '/');
+            .replace(/[\\|\/]/g, '/')
+            .replace(/^packages[\\|\/]/, '')
+            .replace(/[\\|\/]packages[\\|\/]/, '/');
+
+        console.log('name', name);
         for (
             let index = 0;
             index < nameArr.length;
             index++
         ) {
             const element = nameArr[index];
-            if (name.startsWith(element)) {
+            if (name.startsWith('components/' + element)) {
                 const sc = name.replace(
                     element,
                     filterObj[element],
@@ -144,6 +159,7 @@ function beforeWriteFile(
                 return { filePath: filePath };
             }
         }
+        return { filePath: join(top, name) };
     }
 }
 
@@ -151,6 +167,7 @@ export function getDts(dist: string) {
     const top = resolve(process.cwd(), dist);
     return {
         cleanVueFileName: true,
+        exclude: ['**/node_modules/**'],
         // skipDiagnostics: true,
         beforeWriteFile: (
             filePath: string,

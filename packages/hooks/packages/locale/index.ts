@@ -1,8 +1,8 @@
 import { useGlobalConfig } from '../global-config';
-import type { Locale } from '@fangzhongya/vue-lib-types/locale';
+import type { Locale } from '@fangzhongya/vue-lib-types';
 
-import zhCn from '@fangzhongya/vue-lib-locale/zh-cn';
-import type { MaybeRef } from '@fangzhongya/vue-lib-types/hooks';
+import { zhCn } from '@fangzhongya/vue-lib-locale';
+import type { MaybeRef } from '@fangzhongya/vue-lib-types';
 import { ref, unref, isRef, computed } from 'vue';
 import type { Ref } from 'Vue';
 
@@ -15,6 +15,7 @@ export type LocaleContext = {
 };
 
 function getValue(key: string, locale: any): any {
+    console.log('locale', locale);
     const arr = key.split('.');
     let obj = locale;
     for (let index = 0; index < arr.length; index++) {
@@ -30,7 +31,7 @@ function getValue(key: string, locale: any): any {
 export function buildTranslator(
     locale: MaybeRef<Locale>,
 ): Translator {
-    return (path) => getValue(path, unref(locale));
+    return (path) => getValue(path, unref(locale).value);
 }
 
 export function buildLocaleContext(
@@ -38,6 +39,7 @@ export function buildLocaleContext(
 ): LocaleContext {
     const lang = computed(() => unref(locale).name);
     const localeRef = isRef(locale) ? locale : ref(locale);
+    console.log('locale', localeRef);
     return {
         lang,
         locale: localeRef,

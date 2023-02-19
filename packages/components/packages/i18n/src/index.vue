@@ -22,13 +22,18 @@
 </template>
 <script lang="ts" setup>
 import { dataProps } from './data';
-import * as locale from '@fangzhongya/vue-lib-locale/index';
-import type { Locale } from '@fangzhongya/vue-lib-types/locale';
+import { unref, ref } from 'vue';
+import * as locale from '@fangzhongya/vue-lib-locale';
+import type { Locale } from '@fangzhongya/vue-lib-types';
 import { lineToSmallHump } from '@fangzhongya/utils/name/lineToSmallHump';
-import { useGlobalConfig } from '@fangzhongya/vue-lib-hooks/global-config/index';
-import { useCssName } from '@fangzhongya/vue-lib-hooks/cssname/index';
+import {
+    useGlobalConfig,
+    provideGlobalConfig,
+} from '@fangzhongya/vue-lib-hooks';
+import { useCssName } from '@fangzhongya/vue-lib-hooks';
 const cs = useCssName('i18n');
 const config = useGlobalConfig();
+const objconfig = unref(config) || {};
 
 const comlocales: {
     [key: string]: Locale;
@@ -39,7 +44,9 @@ const list = Object.entries(comlocales.common.value);
 
 function onClick(item: [string, string]) {
     const mc = lineToSmallHump(item[0]);
-    config.value.locale = comlocales[mc];
+    objconfig.locale = comlocales[mc];
+    objconfig.cssname = item[0];
+    provideGlobalConfig(ref(objconfig));
 }
 </script>
 <style lang="scss"></style>

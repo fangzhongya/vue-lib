@@ -1,20 +1,13 @@
 import type { ExtractPropTypes } from 'vue';
-import type { Locale } from '@fangzhongya/vue-lib-types/locale';
+import { buildProps } from '@fangzhongya/vue-lib-utils';
 
-import { definePropType } from '@fangzhongya/vue-lib-utils/vue/definePropType';
-
-import { buildProps } from '@fangzhongya/vue-lib-utils/vue/props/runtime';
+import type { Locale } from '@fangzhongya/vue-lib-types';
+import { definePropType } from '@fangzhongya/vue-lib-utils';
 
 export const dataProps = buildProps({
     /**
-     * @description Controlling if the users want a11y features
-     */
-    a11y: {
-        type: Boolean,
-        default: true,
-    },
-    /**
-     * @description Locale Object
+     * @props { Object<Locale> } locale
+     * @description 国际化对象
      */
     locale: {
         type: definePropType<Locale>(Object),
@@ -24,7 +17,8 @@ export const dataProps = buildProps({
      */
     zIndex: Number,
     /**
-     * @description
+     * @props { String } cssname
+     * 前缀样式名称
      */
     cssname: {
         type: String,

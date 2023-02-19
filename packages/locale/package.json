@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-locale",
     "private": false,
-    "version": "1.0.11",
+    "version": "1.0.14",
     "type": "module",
     "description ": "vue组件库国际化",
     "author": "fangzhongya ",
@@ -19,11 +19,10 @@
     },
     "scripts": {
         "dev:index": "ts-node node/index.ts",
-        "dev:packa": "ts-node node/package.ts",
         "dev:v": "ts-node node/version.ts",
         "dev": "pnpm dev:index",
         "build": "tsup",
-        "build:all": "pnpm dev:index & pnpm build & pnpm dev:packa"
+        "build:all": "pnpm dev:index & pnpm build"
     },
     "devDependencies": {
         "@fangzhongya/create": "0.2.2-36",
@@ -33,45 +32,5 @@
         "tsup": "^6.6.3",
         "typescript": "^4.9.5"
     },
-    "exports": {
-        "./*": "./*",
-        "./common": {
-            "require": "./dist/common.cjs",
-            "import": "./dist/common.js",
-            "types": "./dist/common.d.ts"
-        },
-        "./index": {
-            "require": "./dist/index.cjs",
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        },
-        "./en": {
-            "require": "./dist/en.cjs",
-            "import": "./dist/en.js",
-            "types": "./dist/en.d.ts"
-        },
-        "./zh-cn": {
-            "require": "./dist/zh-cn.cjs",
-            "import": "./dist/zh-cn.js",
-            "types": "./dist/zh-cn.d.ts"
-        },
-        ".": {
-            "require": "./dist/index.cjs",
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        }
-    },
-    "files": [
-        "dist"
-    ],
-    "main": "./dist/index.cjs",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "typesVersions": {
-        "*": {
-            "*": [
-                "./dist/*"
-            ]
-        }
-    }
+    "main": "./packages/index.ts"
 }

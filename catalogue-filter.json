@@ -1,7 +1,7 @@
 {
-    "forms/form": "form",
+    "config-provider": "config-provider",
     "forms/subset/input": "input",
     "forms/subset/select": "select",
-    "config-provider": "config-provider",
+    "forms/form": "form",
     "i18n": "i18n"
 }

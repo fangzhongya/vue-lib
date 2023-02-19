@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-icons",
     "private": false,
-    "version": "1.0.11",
+    "version": "1.0.14",
     "type": "module",
     "description ": "vue组件库图标",
     "author": "fangzhongya ",
@@ -19,11 +19,9 @@
     },
     "scripts": {
         "dev:index": "ts-node node/index.ts",
-        "dev:packa": "ts-node node/package.ts",
         "dev:v": "ts-node node/version.ts",
         "dev": "pnpm dev:index",
-        "build": "tsup",
-        "build:all": "pnpm dev:index & pnpm build & pnpm dev:packa"
+        "build": "tsup"
     },
     "devDependencies": {
         "@fangzhongya/create": "0.2.2-36",
@@ -31,26 +29,5 @@
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
         "typescript": "^4.9.5"
-    },
-    "exports": {
-        "./*": "./*",
-        ".": {
-            "require": "./dist/index.cjs",
-            "import": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        }
-    },
-    "files": [
-        "dist"
-    ],
-    "main": "./dist/index.cjs",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "typesVersions": {
-        "*": {
-            "*": [
-                "./dist/*"
-            ]
-        }
     }
 }

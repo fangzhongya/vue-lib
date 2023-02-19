@@ -22,7 +22,9 @@
     "packages/**/*.tsx",
     "packages/**/*.vue",
     "node/**/*.ts",
-    "config.ts"
+    "config.ts",
+    "vite.config.ts",
+    "index.ts"
   ],
   "references": [
     {

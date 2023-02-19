@@ -1,6 +1,6 @@
 import type { ExtractPropTypes } from 'vue';
 
-import { buildProps } from '@fangzhongya/vue-lib-utils/vue/props/runtime';
+import { buildProps } from '@fangzhongya/vue-lib-utils';
 
 export const dataProps = buildProps({
     /**

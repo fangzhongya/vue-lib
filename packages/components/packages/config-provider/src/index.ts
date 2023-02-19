@@ -1,5 +1,5 @@
 import { dataProps } from './data';
-import { provideGlobalConfig } from '@fangzhongya/vue-lib-hooks/global-config/index';
+import { provideGlobalConfig } from '@fangzhongya/vue-lib-hooks';
 import { defineComponent, renderSlot } from 'vue';
 export default defineComponent({
     props: dataProps,

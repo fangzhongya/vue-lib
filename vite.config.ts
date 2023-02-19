@@ -21,11 +21,7 @@ export default defineConfig({
         cssCodeSplit: true,
         rollupOptions: {
             //忽略打包vue文件
-            external: [
-                'vue',
-                'axios',
-                /^@fangzhongya\/vue-lib-utils.*/,
-            ],
+            external: ['vue'],
             // input: [],
             output: [
                 getOutput('es', outDir),
@@ -33,7 +29,7 @@ export default defineConfig({
             ],
         },
         lib: {
-            entry: './packages/index.ts',
+            entry: './index.ts',
         },
     },
 });

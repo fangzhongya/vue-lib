@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib",
     "private": false,
-    "version": "0.0.2-7",
+    "version": "0.0.2-9",
     "type": "module",
     "description ": "vue 组件库",
     "author": "fangzhongya ",
@@ -25,33 +25,100 @@
         "dev:packa": "ts-node node/package.ts",
         "dev": "pnpm -C archive dev",
         "dev:v": "ts-node node/version.ts",
-        "build": "tsup",
+        "build": "vue-tsc && vite build",
         "all:v": "pnpm -r --filter=./packages/** run dev:v",
         "all:c": "pnpm -r --filter=./packages/** run dev:c",
         "build:all": "pnpm -r --filter=./packages/** run build:all & pnpm build & pnpm -C packages/theme all",
         "build:archive": "pnpm run -C archive build",
         "pub": "pnpm -r publish --access public --no-git-checks",
-        "all": "pnpm build:all & pnpm all:v & pnpm pub"
+        "all": "pnpm build:all & pnpm all:v & pnpm dev:v & pnpm pub"
     },
     "dependencies": {
-        "@fangzhongya/vue-lib-components": "workspace:^1.0.9",
-        "@fangzhongya/vue-lib-directives": "workspace:^1.0.12",
-        "@fangzhongya/vue-lib-hooks": "workspace:^1.0.16",
-        "@fangzhongya/vue-lib-locale": "workspace:^1.0.10",
-        "@fangzhongya/vue-lib-theme": "workspace:^1.0.6",
-        "@fangzhongya/vue-lib-types": "workspace:^1.0.10",
-        "@fangzhongya/vue-lib-utils": "workspace:^1.0.10",
+        "@fangzhongya/vue-lib-components": "workspace:^1.0.12",
+        "@fangzhongya/vue-lib-directives": "workspace:^1.0.15",
+        "@fangzhongya/vue-lib-hooks": "workspace:^1.0.26",
+        "@fangzhongya/vue-lib-locale": "workspace:^1.0.13",
+        "@fangzhongya/vue-lib-theme": "workspace:^1.0.9",
+        "@fangzhongya/vue-lib-types": "workspace:^1.0.13",
+        "@fangzhongya/vue-lib-utils": "workspace:^1.0.13",
         "vue": "^3.2.47"
     },
     "devDependencies": {
         "@fangzhongya/create": "0.2.2-36",
         "@types/node": "^18.14.0",
+        "@vitejs/plugin-vue": "^4.0.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
-        "typescript": "^4.9.5"
+        "typescript": "^4.9.5",
+        "vite": "^4.1.2"
     },
     "exports": {
         "./*": "./*",
+        "./components/config-provider/index": {
+            "require": "./dist/components/config-provider/index.cjs",
+            "import": "./dist/components/config-provider/index.js",
+            "types": "./dist/components/config-provider/index.d.ts"
+        },
+        "./components/form/index": {
+            "require": "./dist/components/form/index.cjs",
+            "import": "./dist/components/form/index.js",
+            "types": "./dist/components/form/index.d.ts"
+        },
+        "./components/i18n/index": {
+            "require": "./dist/components/i18n/index.cjs",
+            "import": "./dist/components/i18n/index.js",
+            "types": "./dist/components/i18n/index.d.ts"
+        },
+        "./components/select/index": {
+            "require": "./dist/components/select/index.cjs",
+            "import": "./dist/components/select/index.js",
+            "types": "./dist/components/select/index.d.ts"
+        },
+        "./components/input/index": {
+            "require": "./dist/components/input/index.cjs",
+            "import": "./dist/components/input/index.js",
+            "types": "./dist/components/input/index.d.ts"
+        },
+        "./components/index": {
+            "require": "./dist/components/index.cjs",
+            "import": "./dist/components/index.js",
+            "types": "./dist/components/index.d.ts"
+        },
+        "./directives/scroll/index": {
+            "require": "./dist/directives/scroll/index.cjs",
+            "import": "./dist/directives/scroll/index.js",
+            "types": "./dist/directives/scroll/index.d.ts"
+        },
+        "./directives/index": {
+            "require": "./dist/directives/index.cjs",
+            "import": "./dist/directives/index.js",
+            "types": "./dist/directives/index.d.ts"
+        },
+        "./hooks/cssname/index": {
+            "require": "./dist/hooks/cssname/index.cjs",
+            "import": "./dist/hooks/cssname/index.js",
+            "types": "./dist/hooks/cssname/index.d.ts"
+        },
+        "./hooks/global-config/index": {
+            "require": "./dist/hooks/global-config/index.cjs",
+            "import": "./dist/hooks/global-config/index.js",
+            "types": "./dist/hooks/global-config/index.d.ts"
+        },
+        "./hooks/locale/index": {
+            "require": "./dist/hooks/locale/index.cjs",
+            "import": "./dist/hooks/locale/index.js",
+            "types": "./dist/hooks/locale/index.d.ts"
+        },
+        "./locale/index": {
+            "require": "./dist/locale/index.cjs",
+            "import": "./dist/locale/index.js",
+            "types": "./dist/locale/index.d.ts"
+        },
+        "./index": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
         ".": {
             "require": "./dist/index.cjs",
             "import": "./dist/index.js",
@@ -64,5 +131,12 @@
     "files": [
         "*.d.ts",
         "dist"
-    ]
+    ],
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/*"
+            ]
+        }
+    }
 }

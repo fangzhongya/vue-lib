@@ -11,5 +11,3 @@ export function getTsup(entry = 'packages') {
     };
     return tsup;
 }
-
-export const tsup = getTsup('src');
