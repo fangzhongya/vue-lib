@@ -13,7 +13,7 @@ import { SymbolKey } from '@fangzhongya/vue-lib-utils';
 
 import type { DataProps } from '@fangzhongya/vue-lib-components/packages/config-provider/src/data';
 
-const globalConfig = ref<DataProps>();
+const globalConfig = ref<DataProps>({});
 
 const { GlobalConfig } = SymbolKey;
 
@@ -42,11 +42,31 @@ export function useGlobalConfig(
     }
 }
 
-export const provideGlobalConfig = (
+function setValue<T>(v: T[keyof T], k: keyof T, z: T): T {
+    z[k] = v;
+    return z;
+}
+
+export function setGlobalConfig(
+    obj: DataProps | DataProps[keyof DataProps],
+    key?: keyof DataProps,
+) {
+    if (key) {
+        globalConfig.value = setValue(
+            obj as DataProps[keyof DataProps],
+            key,
+            globalConfig.value,
+        );
+    } else {
+        globalConfig.value = obj as DataProps;
+    }
+}
+
+export function provideGlobalConfig(
     config: MaybeRef<DataProps>,
     app?: App,
     global = false,
-) => {
+) {
     const inSetup = !!getCurrentInstance();
     const oldConfig = inSetup
         ? useGlobalConfig()
@@ -67,7 +87,7 @@ export const provideGlobalConfig = (
         globalConfig.value = context.value;
     }
     return context;
-};
+}
 
 function keysOf<T extends object>(arr: T) {
     return Object.keys(arr) as Array<keyof T>;

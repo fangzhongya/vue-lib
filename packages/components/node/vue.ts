@@ -29,8 +29,8 @@ export const config = {
         return '@fangzhongya/vue-lib-utils';
     },
 
-    coverConfig: true,
-    fileCover: true,
+    coverConfig: false,
+    fileCover: false,
     writeNotes: true,
 
     extensions: ['vue', 'ts'],
@@ -42,6 +42,8 @@ export const config = {
     aliass: {},
 
     matchs: [],
+
+    forceUpdate: [/[\\|\/]packages[\\|\/]index\.ts$/],
 
     matchexts: ['/src/index.vue', '/src/index.ts'],
 };

@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-types",
     "private": false,
-    "version": "1.0.14",
+    "version": "1.0.15",
     "type": "module",
     "description ": "vue组件库type类型",
     "author": "fangzhongya ",
@@ -27,7 +27,7 @@
         "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-36",
+        "@fangzhongya/create": "0.2.2-46",
         "@types/node": "^18.14.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",

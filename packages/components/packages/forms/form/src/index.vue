@@ -3,12 +3,10 @@
 </template>
 <script lang="ts" setup>
 import { dataProps } from './data';
-import { useLocale } from '@fangzhongya/vue-lib-hooks';
 import { useCssName } from '@fangzhongya/vue-lib-hooks';
-const cs = useCssName('form');
+import { useLocale } from '@fangzhongya/vue-lib-hooks';
 const { getLocale } = useLocale();
-const v = getLocale('cs');
-console.log('v', v);
+const cs = useCssName('form');
 const props = defineProps(dataProps);
 </script>
 <style lang="scss"></style>

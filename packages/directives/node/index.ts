@@ -10,10 +10,11 @@ const comCnfig = JSON.parse(configJson.toString());
 
 runDev({
     dir: './packages/',
-    coverConfig: true,
-    fileCover: true,
+    coverConfig: false,
+    fileCover: false,
     writeNotes: true,
     extensions: ['ts'],
+    forceUpdate: [/[\\|\/]packages[\\|\/]index\.ts$/],
     fileDirs(_url, _files, name) {
         const mc = name as string;
         let bmc = mc;

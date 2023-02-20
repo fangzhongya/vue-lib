@@ -1,21 +1,22 @@
 import { resolve, join } from 'node:path';
+import { config } from './vue';
 
 // import { filter } from './catalogue-filter';
-// import { config as comCnfig } from './config';
+// import { config as comCnfig } from '../../../config';
 import { readFileSync } from 'node:fs';
 const configJson = readFileSync(
-    resolve(process.cwd(), './config.json'),
+    resolve(process.cwd(), '../../config.json'),
 );
 const comCnfig = JSON.parse(configJson.toString());
 
 const filterJson = readFileSync(
-    resolve(process.cwd(), './catalogue-filter.json'),
+    resolve(process.cwd(), '../../catalogue-filter.json'),
 );
 const filter = JSON.parse(filterJson.toString());
 
-const config = {
-    splicetop: '',
-};
+// const config = {
+//     splicetop: '',
+// };
 
 export interface PreRenderedAsset {
     name: string | undefined;
@@ -59,6 +60,7 @@ function entryFileNames(
     type: string,
 ) {
     let name = obj.name;
+    console.log('name', name);
     let hz = type == 'es' ? 'js' : 'cjs';
     if (name == 'packages/components/index') {
         name = 'index';
@@ -140,10 +142,7 @@ function beforeWriteFile(
             .replace(top, '')
             .substring(1)
             .replace(/[\\|\/]/g, '/')
-            .replace(/^packages[\\|\/]/, '')
             .replace(/[\\|\/]packages[\\|\/]/, '/');
-
-        console.log('name', name);
         for (
             let index = 0;
             index < nameArr.length;
@@ -159,7 +158,6 @@ function beforeWriteFile(
                 return { filePath: filePath };
             }
         }
-        return { filePath: join(top, name) };
     }
 }
 
@@ -167,7 +165,6 @@ export function getDts(dist: string) {
     const top = resolve(process.cwd(), dist);
     return {
         cleanVueFileName: true,
-        exclude: ['**/node_modules/**', '**/dist/**'],
         // skipDiagnostics: true,
         beforeWriteFile: (
             filePath: string,

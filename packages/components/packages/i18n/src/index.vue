@@ -28,7 +28,7 @@ import type { Locale } from '@fangzhongya/vue-lib-types';
 import { lineToSmallHump } from '@fangzhongya/utils/name/lineToSmallHump';
 import {
     useGlobalConfig,
-    provideGlobalConfig,
+    setGlobalConfig,
 } from '@fangzhongya/vue-lib-hooks';
 import { useCssName } from '@fangzhongya/vue-lib-hooks';
 const cs = useCssName('i18n');
@@ -46,7 +46,7 @@ function onClick(item: [string, string]) {
     const mc = lineToSmallHump(item[0]);
     objconfig.locale = comlocales[mc];
     objconfig.cssname = item[0];
-    provideGlobalConfig(ref(objconfig));
+    setGlobalConfig(objconfig);
 }
 </script>
 <style lang="scss"></style>

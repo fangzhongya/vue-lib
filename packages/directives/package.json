@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-directives",
     "private": false,
-    "version": "1.0.16",
+    "version": "1.0.17",
     "type": "module",
     "description ": "vue组件库指令",
     "author": "fangzhongya ",
@@ -17,19 +17,22 @@
         "access": "public",
         "registry": "https://registry.npmjs.org/"
     },
+    "bin": {
+        "lib-d": "bin/lib-d.js"
+    },
     "scripts": {
         "dev:index": "ts-node node/index.ts",
         "dev:tests": "ts-node node/tests.ts",
         "dev:v": "ts-node node/version.ts",
         "dev:c": "pnpm dev:index",
-        "build": "tsup",
+        "build": "pnpm dev:index  & tsup",
         "build:all": "pnpm build",
         "test": "vitest",
         "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-36",
-        "@types/node": "^18.13.0",
+        "@fangzhongya/create": "0.2.2-48",
+        "@types/node": "^18.14.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
         "typescript": "^4.9.5",

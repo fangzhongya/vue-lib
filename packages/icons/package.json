@@ -1,7 +1,7 @@
 {
     "name": "@fangzhongya/vue-lib-icons",
     "private": false,
-    "version": "1.0.14",
+    "version": "1.0.15",
     "type": "module",
     "description ": "vue组件库图标",
     "author": "fangzhongya ",
@@ -24,8 +24,8 @@
         "build": "tsup"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-36",
-        "@types/node": "^18.13.0",
+        "@fangzhongya/create": "0.2.2-46",
+        "@types/node": "^18.14.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",
         "typescript": "^4.9.5"
