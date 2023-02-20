@@ -27,7 +27,7 @@
         "test:run": "vitest run"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-46",
+        "@fangzhongya/create": "0.2.2-53",
         "@types/node": "^18.14.0",
         "ts-node": "^10.9.1",
         "tsup": "^6.6.3",

@@ -1,0 +1,20 @@
+/**
+ * @config cover=false
+ * cover 是否覆盖当前文件，默认是false， true 表示不覆盖
+ * 当前已经由@fangzhongya/create自动生成
+ * Mon Feb 20 2023 17:13:20 GMT+0800 (中国标准时间)
+ */
+@use 'sass:map';
+@use "../common/config.scss" as *;
+@use "./bangds-dsadf/index.scss" as *;
+@use "./emits/index.scss" as *;
+@use "./expose/index.scss" as *;
+@use "./date/index.scss" as *;
+@use "./config-provider/index.scss" as *;
+@use "./form/index.scss" as *;
+@use "./i18n/index.scss" as *;
+@use "./props/index.scss" as *;
+@use "./input/index.scss" as *;
+@use "./slot/index.scss" as *;
+@use "./select/index.scss" as *;
+@use "./title/index.scss" as *;

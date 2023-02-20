@@ -28,7 +28,7 @@
         "all": "pnpm build"
     },
     "devDependencies": {
-        "@fangzhongya/create": "0.2.2-46",
+        "@fangzhongya/create": "0.2.2-53",
         "@types/gulp": "^4.0.10",
         "@types/gulp-autoprefixer": "^0.0.33",
         "@types/gulp-clean-css": "^4.3.0",

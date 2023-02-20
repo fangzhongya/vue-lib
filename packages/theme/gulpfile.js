@@ -21,7 +21,9 @@ const autObj = {};
 
 function compile() {
     const sass = gulpSass(dartSass);
-    let go = src(resolve(process.cwd(), './src/**/*.scss'))
+    let go = src(
+        resolve(process.cwd(), './packages/**/*.scss'),
+    )
         .pipe(sass.sync())
         .pipe(autoprefixer(autObj))
         .pipe(cleanCss());
@@ -49,7 +51,7 @@ function compile() {
 }
 
 function copyfont() {
-    return src(resolve(process.cwd(), 'src/fonts/**'))
+    return src(resolve(process.cwd(), 'packages/fonts/**'))
         .pipe(cleanCss())
         .pipe(dest('./dist/fonts'));
 }

@@ -1,14 +1,14 @@
 {
     "config-provider": "config-provider",
-    "cs/emits": "emits",
-    "cs/props": "props",
-    "cs/expose": "expose",
-    "cs/slot": "slot",
-    "cs/title": "title",
     "forms/form": "form",
-    "forms/subset/date": "date",
     "forms/subset/input": "input",
+    "forms/subset/date": "date",
     "forms/subset/select": "select",
     "i18n": "i18n",
-    "i18na": "i18na"
+    "cs/bangds-dsadf": "bangds-dsadf",
+    "cs/expose": "expose",
+    "cs/emits": "emits",
+    "cs/props": "props",
+    "cs/slot": "slot",
+    "cs/title": "title"
 }

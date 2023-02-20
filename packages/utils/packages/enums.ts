@@ -8,3 +8,10 @@ export enum SymbolKey {
 export enum FunctConfig {
     epPropKey = '__epPropKey',
 }
+
+export enum DefaultConfig {
+    /**
+     * 组件前缀
+     */
+    alias = '',
+}

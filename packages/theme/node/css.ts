@@ -15,10 +15,11 @@ const filter = JSON.parse(filterJson.toString());
 
 runDev({
     dir: '../components/packages',
-    outDir: './src',
+    outDir: './packages',
     alias: comCnfig.alias,
     filter: comCnfig.commerge ? filter : undefined,
     coverConfig: true,
     fileCover: true,
     writeNotes: true,
+    topUrl: ['./common/config.scss'],
 });

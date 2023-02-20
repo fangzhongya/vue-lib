@@ -1,5 +1,5 @@
 import { warn } from 'vue';
-import { isObject } from '@fangzhongya/utils/basic/object/isObject';
+import { isObject } from '../../util';
 import type { PropType } from 'vue';
 import { FunctConfig } from '../../enums';
 import type {

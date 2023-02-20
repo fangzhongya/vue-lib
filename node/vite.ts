@@ -1,7 +1,6 @@
 import { resolve, join } from 'node:path';
 
 // import { filter } from './catalogue-filter';
-// import { config as comCnfig } from './config';
 import { readFileSync } from 'node:fs';
 const configJson = readFileSync(
     resolve(process.cwd(), './config.json'),
@@ -143,7 +142,6 @@ function beforeWriteFile(
             .replace(/^packages[\\|\/]/, '')
             .replace(/[\\|\/]packages[\\|\/]/, '/');
 
-        console.log('name', name);
         for (
             let index = 0;
             index < nameArr.length;

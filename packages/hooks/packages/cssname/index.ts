@@ -1,6 +1,8 @@
 import { useGlobalConfig } from '../global-config';
 
-export const defaultNamespace = '';
+import { DefaultConfig } from '@fangzhongya/vue-lib-utils';
+
+const defaultNamespace = DefaultConfig.alias;
 
 const statePrefix = 'is';
 

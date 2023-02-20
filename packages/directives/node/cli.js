@@ -1,6 +1,5 @@
 import { join } from 'node:path';
 import { runDev } from '@fangzhongya/create/bins/bil';
-import { humpToLine } from '@fangzhongya/utils/name/humpToLine';
 import { lineToLargeHump } from '@fangzhongya/utils/name/lineToLargeHump';
 import {
     writeInit,
